@@ -8,10 +8,7 @@
 
     <body>
         <header>
-			<a href=><img id="logo" src="img/logo_gbaf.png" alt="logo de GBAF"/></a>
-			<div id="user">
-				<a href=></a><p>Nom & Prénom</p></a>
-			</div>
+        <?php include("includes/header.php"); ?>
 		</header>
 
         <main>
@@ -79,10 +76,9 @@
                         <a class="button" href=>Lire la suite</a>
 
             </section>
-			<footer>
-				<p><a href="#">Mentions légales</a> | <a href="#"> Contact</a></p>
-			</footer>
         </main>
-
-    </body>
+        <footer>
+            <?php include("includes/footer.php"); ?>
+        </footer>
+        </body>
 </html>
