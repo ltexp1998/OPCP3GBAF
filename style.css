@@ -1,0 +1,144 @@
+/*css page acceuil*/
+
+/* header */
+
+#logo {
+    display: block;
+    height: 140px;
+    margin-left: 50px;
+}
+
+header {
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#user {
+    margin: 0 10px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+}
+
+/* index sections */
+
+body {
+    font-family: 'Georgia';
+}
+
+main {
+    margin: 0 50px 0 50px;
+}
+
+#conteneur_acteur {
+    border: solid black 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.acteur {
+    border: solid black 1px;
+    width: 98%;
+    margin: 5px 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.presentation_acteur {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.logo_acteur {
+    height: 100px;
+}
+
+.description {
+    margin-left: 20px;
+    width: 60%;
+}
+
+.button {
+    align-self: flex-end;
+    white-space: nowrap;
+    border: solid red 1px;
+    border-radius: 10px;
+    padding: 5px;
+    color: #000000;
+}
+
+/* footer */
+
+footer {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+footer p, footer a {
+    color: white;
+    text-decoration: none;
+}
+
+/*responsive page acceuil*/
+
+@media screen and (max-width: 728px) {
+    .acteur {
+        flex-direction: column;
+    }
+
+    .button {
+        align-self: flex-end;
+        white-space: nowrap;
+        text-decoration: none;
+        color: #fff;
+    }
+}
+
+@media screen and (max-device-width: 728px) {
+    .acteur {
+        padding: 20px 50px 20px 50px;
+        width: 80%;
+    }
+
+    .presentation_acteur {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo_acteur {
+        height: 50%%;
+        width: 50%%;
+    }
+
+    .description {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    #presentation .listeacteurs {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .listeacteurs ul {
+        margin: 0;
+    }
+
+    .listeacteurs li {
+        margin: 10;
+    }
+}
