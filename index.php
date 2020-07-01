@@ -7,9 +7,9 @@
     </head>
 
     <body>
-        <header>
+
         <?php include("includes/header.php"); ?>
-		</header>
+
 
         <main>
 
@@ -31,7 +31,7 @@
             <section id="acteurs">
                 <h2>Présentation des acteurs</h2>
                 <div id="conteneur_acteur">
-
+<!-- a recuperer de la DB pour creer autant d'acteurs que d'entrées dans la base avec les details-->
                     <div class="acteur">
                         <div class="presentation_acteur">
                             <img class="logo_acteur" src="img/CDE.png" alt="">
@@ -40,9 +40,9 @@
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
                         </div>
-                        <a class="button" href=>Lire la suite</a>
+                        <a class="button" href="acteurs.php">Lire la suite</a>
                     </div>
-
+<!-- a recuperer de la DB -->
                     <div class="acteur">
                         <div class="presentation_acteur">
                             <img class="logo_acteur" src="img/Dsa_france.png" alt="">
@@ -51,7 +51,7 @@
                                 <p>lien Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
                         </div>
-                        <a class="button" href=>Lire la suite</a>
+                        <a class="button" href="acteurs.php">Lire la suite</a>
                     </div>
 
                     <div class="acteur">
@@ -62,7 +62,7 @@
                                 <p>lien Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
                         </div>
-                        <a class="button" href=>Lire la suite</a>
+                        <a class="button" href="acteurs.php">Lire la suite</a>
                     </div>
 
                     <div class="acteur">
@@ -73,7 +73,7 @@
                                 <p>lien Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
                         </div>
-                        <a class="button" href=>Lire la suite</a>
+                        <a class="button" href="acteurs.php">Lire la suite</a>
 
             </section>
         </main>

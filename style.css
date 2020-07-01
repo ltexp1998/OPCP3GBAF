@@ -25,6 +25,7 @@ header {
 #user p {
     margin-left: 10px;
 }
+
 /* index sections */
 
 body {
@@ -78,21 +79,6 @@ main {
     color: #000000;
 }
 
-/* footer */
-
-footer {
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-}
-
-footer p, footer a {
-    color: white;
-    text-decoration: none;
-}
-
 /*responsive page acceuil*/
 
 @media screen and (max-width: 728px) {
@@ -106,7 +92,7 @@ footer p, footer a {
         text-decoration: none;
         color: #fff;
     }
-}
+    }
 
 @media screen and (max-device-width: 728px) {
     .acteur {
@@ -143,4 +129,128 @@ footer p, footer a {
     .listeacteurs li {
         margin: 10;
     }
+}
+
+/* pages acteurs */
+
+#presentation_acteur {
+    margin: 10px 0px;
+    padding: 10px 30px 30px 20px;
+    background-color: #FFF;
+}
+
+.logo_page_acteur {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+
+.logo_page_acteur img {
+    width: 40%;
+}
+
+.description_page_acteur h2 {
+    margin-bottom: 0;
+}
+
+#commentaire {
+    padding: 10px 30px 30px 20px;
+    margin-bottom: 10px;
+}
+
+.head_commentaire {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.head_commentaire h2 {
+    margin-top: 0;
+}
+
+.actions {
+    display: flex;
+}
+
+.actions a {
+    text-decoration: none;
+    color: #000;
+}
+
+.actions div {
+    border-radius: 5px;
+    margin-left: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background-color: #FFF;
+}
+
+.actions p {
+    margin: 0;
+}
+
+.commentaires div {
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #FFF;
+}
+
+.commentaires p {
+    margin: 0 0;
+}
+/*responsive page acteur*/
+
+@media screen and (max-device-width: 600px) {
+    .acteur {
+        padding: 20px 50px 20px 50px;
+        width: 80%;
+    }
+
+    .presentation_acteur {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo_acteur {
+        height: 100%;
+        width: 100%;
+    }
+
+    .description {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    #presentation .listeacteurs {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .listeacteurs ul {
+        margin: 0;
+    }
+
+    .listeacteurs li {
+        margin: 10;
+    }
+}
+
+/* footer */
+
+footer {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+footer p, footer a {
+    color: white;
+    text-decoration: none;
 }
