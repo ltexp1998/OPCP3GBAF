@@ -1,18 +1,15 @@
-/*css page acceuil*/
-
 /* header */
 
-#logo {
-    display: block;
-    height: 140px;
-    margin-left: 50px;
-}
 
 header {
     height: 150px;
     display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
+    justify-content: space-between;
+}
+
+#logo {
+    display: flex;
+    height: 140px;
 }
 
 #user {
@@ -20,10 +17,30 @@ header {
     font-weight: 400;
     display: flex;
     align-items: center;
-    margin-right: 50px;
 }
-#user p {
-    margin-left: 10px;
+
+/*responsive header*/
+
+@media screen and (max-device-width: 700px) {
+   header {
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #logo {
+        display: block;
+        height: 140px;
+    }
+
+    #user {
+        margin: 0 10px;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+    }
+
 }
 
 /* index sections */
@@ -78,24 +95,22 @@ main {
     padding: 5px;
     color: #000000;
 }
+.illustration {
+    display: flex;
+    justify-content: center;
+}
+.illustration img {
+    display: block;
+    border: solid 1px #000000;
+    padding: 5px;
+    max-width: 100%;
+}
 
-/*responsive page acceuil*/
+/*responsive index sections*/
 
-@media screen and (max-width: 728px) {
+@media screen and (max-device-width: 700px) {
     .acteur {
         flex-direction: column;
-    }
-
-    .button {
-        align-self: flex-end;
-        white-space: nowrap;
-        text-decoration: none;
-        color: #fff;
-    }
-    }
-
-@media screen and (max-device-width: 728px) {
-    .acteur {
         padding: 20px 50px 20px 50px;
         width: 80%;
     }
@@ -109,7 +124,7 @@ main {
         height: 50%;
         width: 50%;
     }
-
+ 
     .description {
         margin-left: 0px;
         width: 100%;
@@ -128,6 +143,12 @@ main {
 
     .listeacteurs li {
         margin: 10;
+    }
+    .button {
+        align-self: flex-end;
+        white-space: nowrap;
+        text-decoration: none;
+        color: #fff;
     }
 }
 
@@ -154,6 +175,7 @@ main {
 }
 
 #commentaire {
+    border:solid black 1px;
     padding: 10px 30px 30px 20px;
     margin-bottom: 10px;
 }
@@ -190,8 +212,11 @@ main {
 .actions p {
     margin: 0;
 }
-
+.votes, .Nouveau_commentaire{
+        border: solid black 1px;
+}
 .commentaires div {
+    border: solid black 1px;
     border-radius: 5px;
     padding: 15px;
     margin: 10px 0;
@@ -203,7 +228,7 @@ main {
 }
 /*responsive page acteur*/
 
-@media screen and (max-device-width: 600px) {
+@media screen and (max-device-width: 700px) {
     .acteur {
         padding: 20px 50px 20px 50px;
         width: 80%;
