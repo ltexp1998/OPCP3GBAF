@@ -1,16 +1,13 @@
 <?php
 session_start();
 require('db/connexion.php');
-require('model/model.php');
-$actors = getActors();
-/* echo "<pre>";
-print_r($actors);
-die(); */
+require('fonctions/fonctionsql.php');
+$actors = getactors();
 if (isset($_SESSION['username'])) {
     include('includes/home.php');
-} elseif ($_GET['login'] == 'register') {
+} elseif (@$_GET['login'] == 'register') {
     include('includes/register.php');
-} elseif ($_GET['login'] == 'forgetpass') {
+} elseif (@$_GET['login'] == 'forgetpass') {
     include('includes/forgetpass.php');
 } else {
     include('includes/login.php');

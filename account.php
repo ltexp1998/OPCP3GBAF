@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('db/connexion.php');
-require('model/model.php');
+require('fonctions/fonctionsql.php');
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($_POST['account_form'] == 'username') {
         $user = getUser($_SESSION['username']);
@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors++;
             $errorUsername = 'c\'est votre pseudo actuel ou ce pseudo est déjà pris veuillez en saisir un autre';
         }
-        if (empty($newUsername) OR strlen($newUsername) > 20 OR strlen($newUsername) < 4) {
+        if (empty($newUsername) OR strlen($newUsername) > 45 OR strlen($newUsername) < 4) {
             $errors++;
             $errorUsername = 'Le nom d\'utilisateur est vide ou est trop long ou trop court';
         }
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $newpass = htmlspecialchars($_POST['newpass']);
         $checkpass = htmlspecialchars($_POST['checkpass']);
         $errors = 0;
-        if (empty($newpass) OR strlen($newpass) > 20 OR strlen($newpass) < 4) {
+        if (empty($newpass) OR strlen($newpass) > 70 OR strlen($newpass) < 4) {
             $error++;
             $errorPass = 'Le mot de passe est vide ou est trop long ou trop court';
         }
@@ -57,15 +57,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </head>
     <body>
         <?php include("includes/header.php"); ?>
+
         <main id="account">
-            <h1><?= $_SESSION['lastname'] ?> <?= $_SESSION['firstname'] ?></h1>
+            <p><h1><?= $_SESSION['lastname'] ?> <?= $_SESSION['firstname'] ?></h1></p>
             <section class="form">
                 <h2>Changer mon nom d'utilisateur</h2>
                 <form method="post">
                     <input type="hidden" name="account_form" value="username" />
                     <p><label for="username">Nom d'utilisateur : </label><br /><input type="text" name="username" id="username" value="<?= $_SESSION['username']; ?>" /></p>
-                    <p class="error"><?= isset($errorUsername) ? $errorUsername : '' ?></p>
-                    <p class="confirm"><?= isset($confirmUsername) ? $confirmUsername : '' ?></p>
+                    <p class="error"><?= isset($errorusername) ? $errorusername : '' ?></p>
+                    <p class="confirm"><?= isset($confirmusername) ? $confirmusername : '' ?></p>
                     <input type="submit" value="Valider les changements">
                 </form>
             </section>
@@ -74,12 +75,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <form method="post">
                     <input type="hidden" name="account_form" value="password" />
                     <p><label for="newpass">Mon nouveau mot de passe : </label><br /><input type="password" name="newpass" id="newpass" required /></p>
-                    <p class="error"><?= isset($errorPass) ? $errorPass : '' ?></p>
+                    <p class="error"><?= isset($errorpass) ? $errorpass : '' ?></p>
                     <p><label for="checkpass">Confirmation du nouveau mot de passe : </label><br /><input type="password" name="checkpass" id="checkpass" required /></p>
-                    <p class="error"><?= isset($diffPass) ? $diffPass : '' ?></p>
-                    <p class="confirm"><?= isset($confirmPassword) ? $confirmPassword : '' ?></p>
+                    <p class="error"><?= isset($diffpass) ? $diffpass : '' ?></p>
+                    <p class="confirm"><?= isset($confirmpassword) ? $confirmpassword : '' ?></p>
                     <input type="submit" value="Valider les changements">
                 </form>
             </section>
+            
         </main>
         <?php include("includes/footer.php"); ?>

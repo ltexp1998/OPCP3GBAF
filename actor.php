@@ -5,8 +5,7 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 require('db/connexion.php');
-require('model/model.php');
+require('fonctions/fonctionsql.php');
 $actor = getActor($_GET['id_actor']);
 include('includes/actor_presentation.php');
-//include('includes/actor_comments.php');
-include("includes/footer.php");
+

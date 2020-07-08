@@ -25,13 +25,13 @@
                         <li>La Banque Postale.</li>
                     </ul>
                 </div>
-                <p>Même s’il existe une forte concurrence entre ces entités, elles vont toutes travailler  de la même façon pour gérer près de 80 millions de comptes sur le territoire  national.  Le GBAF est le représentant de la profession bancaire et des assureurs sur tous  les axes de la réglementation financière française. Sa mission est de promouvoir  l'activité bancaire à l’échelle nationale. C’est aussi un interlocuteur privilégié des pouvoirs publics.  </p>
+                <p>Même s’il existe une forte concurrence entre ces entités, elles vont toutes travailler de la même façon pour gérer près de 80 millions de comptes sur le territoire national.</p>
+				<p>Le GBAF est le représentant de la profession bancaire et des assureurs sur tous les axes de la réglementation financière française. Sa mission est de promouvoir l'activité bancaire à l’échelle nationale.</p>
+                <p>C’est aussi un interlocuteur privilégié des pouvoirs publics.</p>
                 <div id="illustration"><img src="img/illustration.jpg" alt="illustration"/></div>
             </section>
             <section id="acteurs">
                 <h2>Présentation des acteurs</h2>
-                <p>texte acteurs et partenaires</p>
-                <p>...</p>
                 <div id="conteneur_acteur">
                     <?php foreach ($actors as $actor) : ?>
                         <div class="acteur">
@@ -47,4 +47,3 @@
                     <?php endforeach; ?>
                 </div>
             </section>
-        </main>

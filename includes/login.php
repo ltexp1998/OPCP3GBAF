@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $username = htmlspecialchars($_POST['username']);
         $pass = htmlspecialchars($_POST['pass']);
         $user = getUser($username);
-        $isPasswordCorrect = password_verify($pass, $user['password']);
+        $isPasswordCorrect = password_verify($pass, @$user['password']);
         if ($isPasswordCorrect) {
             $_SESSION['lastname'] = $user['lastname'];
             $_SESSION['firstname'] = $user['firstname'];
@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header('Location: index.php');
             exit();
         } else {
-            $errorMsg = "Vérifiez vos identifiants";
+            $errormsg = "Vérifiez vos identifiants";
         }
     }
 }
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input type="hidden" name="login_form" value="connexion" />
                     <p><label for="username">Nom d'utilisateur : </label><br /><input type="text" name="username" id="username" value="<?= isset($_POST['username']) ? $_POST['username'] : '' ?>" required /></p>
                     <p><label for="pass">Mot de passe : </label><br /><input type="password" name="pass" id="pass" required /></p>
-                    <p class="error"><?= isset($errorMsg) ? $errorMsg : '' ?></p>
+                    <p class="error"><?= isset($errormsg) ? $errormsg : '' ?></p>
                     <p><input type="submit" value="Se connecter" /></p>
                 </form>
                 <p>Pas encore de compte ? <a href="index.php?login=register">Inscrivez-vous !</a></p>

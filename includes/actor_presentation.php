@@ -9,6 +9,7 @@
     </head>
     <body>
         <?php include("includes/header.php"); ?>
+        <br/>
         <main>
             <section id="presentation_acteur">
                 <div class="logo_page_acteur">
@@ -19,3 +20,5 @@
                     <p><?= $actor['description']; ?></p>
                 </div>
             </section>
+        </main>
+        <?php include("includes/footer.php");?>
