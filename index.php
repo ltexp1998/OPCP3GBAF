@@ -2,9 +2,9 @@
 session_start();
 require('db/connexion.php');
 require('fonctions/fonctionsql.php');
-$actors = getactors();
 if (isset($_SESSION['username'])) { //verifie si déjà loggé et ouvre la page home.php
-    include('includes/home.php');
+    $actors = getactors();
+    include('includes/home.php'); //ajouter le elsif vers actor
 } elseif (@$_GET['login'] == 'register') { //ouvre la page d'inscription via le lien
     include('includes/register.php');
 } elseif (@$_GET['login'] == 'forgetpass') { //ouvre la page mofid de mdp via le lien

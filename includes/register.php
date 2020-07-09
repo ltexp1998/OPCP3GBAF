@@ -44,15 +44,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errorsmsg['answer'] = 'La réponse est vide ou est trop longue';
         }
         if ($errors === 0) { // si tout est ok creation du newuser et cryptage du pswd
-                $pass_hache = password_hash($pass, PASSWORD_DEFAULT);
+                $pass_hache = password_hash($pass, PASSWORD_DEFAULT); //a modif pour b crypt
                 createNewuser($lastname, $firstname, $username, $pass_hache, $question, $answer);
-                header('Location: index.php');
+                header('Location: index.php'); // faire un else avec un retour info ok ou nok
                 exit();
         }
     }
 }
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- faire un header -->
 <html lang="fr" dir="ltr">
     <head>
         <meta charset="utf-8"/>

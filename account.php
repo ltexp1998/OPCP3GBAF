@@ -83,6 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <p class="error"><?= isset($errorpass) ? $errorpass : '' ?></p>
                     <p><label for="checkpass">Confirmation du nouveau mot de passe : </label><br /><input type="password" name="checkpass" id="checkpass" required /></p>
                     <p class="error"><?= isset($diffpass) ? $diffpass : '' ?></p>
+                    <p class="error"><?= isset($errorpass) ? $errorpass : '' ?></p>
                     <p class="confirm"><?= isset($confirmpassword) ? $confirmpassword : '' ?></p>
                     <input type="submit" value="Valider les changements">
                 </form>
