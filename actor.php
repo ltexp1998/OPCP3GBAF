@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['username'])) { //verification login
+if (!isset($_SESSION['username'])) { //verification login sinon renvoi vers index et login
     header('Location: index.php');
     exit();
 }

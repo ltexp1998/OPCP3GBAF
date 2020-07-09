@@ -42,7 +42,6 @@ function createnewuser($lastname, $firstname, $username, $pass_hache, $question,
         'question' => $question,
         'answer' => $answer));
 }
-
 function updatepass($pass_hache, $username) {
     require('db/connexion.php');
     $req = $db->prepare('UPDATE user SET password = ? WHERE username = ?');
@@ -52,6 +51,26 @@ function updatepass($pass_hache, $username) {
 function updateusername($newusername, $username) {
     require('db/connexion.php');
     $req = $db->prepare('UPDATE user SET username = ? WHERE username = ?');
-    $req->execute(array($newUsername, $username));
+    $req->execute(array($newusername, $username));
+}
+function updatelastname($newLastname, $username)
+{
+    require('db/connexion.php');
+    $req = $db->prepare('UPDATE gbaf_member SET lastname = ? WHERE username = ?');
+    $req->execute(array($newlastname, $username));
+}
+
+function updatefirstname($newFirstname, $username)
+{
+    require('db/connexion.php');
+    $req = $db->prepare('UPDATE gbaf_member SET firstname = ? WHERE username = ?');
+    $req->execute(array($newfirstname, $username));
+}
+
+function updatequestionanswer($newQuestion, $newAnswer, $username)
+{
+    require('db/connexion.php');
+    $req = $db->prepare('UPDATE gbaf_member SET question = ?, answer = ? WHERE username = ?');
+    $req->execute(array($newquestion, $newanswer, $username));
 }
 ?>

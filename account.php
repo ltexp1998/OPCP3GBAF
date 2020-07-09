@@ -2,50 +2,56 @@
 session_start();
 require('db/connexion.php');
 require('fonctions/fonctionsql.php');
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($_POST['account_form'] == 'username') {
-        $user = getUser($_SESSION['username']);
+        $user = getuser($_SESSION['username']);
         $username = $user['username'];
-        $newUsername = htmlspecialchars($_POST['username']);
+        $newusername = htmlspecialchars($_POST['username']); //formatage pour eviter entree incoherentes
         $errors = 0;
-        $testUsername = getUser($newUsername);
-        if (!empty($testUsername)) {
+        $testusername = getuser($newusername);
+        if (!empty($testusername)) {
             $errors++;
-            $errorUsername = 'c\'est votre pseudo actuel ou ce pseudo est déjà pris veuillez en saisir un autre';
+            $errorusername = 'c\'est votre pseudo actuel ou ce pseudo est déjà pris veuillez en saisir un autre'; 
         }
-        if (empty($newUsername) OR strlen($newUsername) > 45 OR strlen($newUsername) < 4) {
+        if (empty($newusername) OR strlen($newusername) > 45 OR strlen($newusername) < 4) { //verification longueur de l'entree
             $errors++;
-            $errorUsername = 'Le nom d\'utilisateur est vide ou est trop long ou trop court';
+            $errorusername = 'Le nom d\'utilisateur est vide ou est trop long ou trop court';
         }
         if ($errors === 0) {
-            updateUsername($newUsername, $username);
-            $user = getUser($username);
-            $username = $user['username'];
-            $_SESSION['username'] = $newUsername;
-            $confirmUsername = 'Votre nom d\'utilisateur a bien été changé';
+            updateusername($newusername, $username);
+            $user = getuser($username);
+            $username = @$user['username'];
+            $_SESSION['username'] = $newusername;
+            $confirmusername = 'Votre nom d\'utilisateur a bien été changé';
         }
-    }
+        }
     if ($_POST['account_form'] == 'password') {
         $username = $_SESSION['username'];
-        $newpass = htmlspecialchars($_POST['newpass']);
-        $checkpass = htmlspecialchars($_POST['checkpass']);
+        $newpass = htmlspecialchars($_POST['newpass']); //formatage pour eviter entree 1 incoherente
+        $checkpass = htmlspecialchars($_POST['checkpass']); //formatage pour eviter entree 2 incoherente
         $errors = 0;
-        if (empty($newpass) OR strlen($newpass) > 70 OR strlen($newpass) < 4) {
+        if (empty($newpass) OR strlen($newpass) > 70 OR strlen($newpass) < 4) { //verification longueur de l'entree 1
             $error++;
-            $errorPass = 'Le mot de passe est vide ou est trop long ou trop court';
+            $errorpass = 'Le mot de passe est vide ou est trop long ou trop court';
         }
-        if ($newpass != $checkpass) {
+        if (empty($checkpass) OR strlen($checkpass) > 70 OR strlen($checkpass) < 4) { //verification longueur de l'entree 2
+            $error++;
+            $errorpass = 'Le mot de passe est vide ou est trop long ou trop court';
+        }
+        if ($newpass != $checkpass) { //verification 2 entrees identiques
             $errors++;
-            $diffPass = "Vos mots de passe saisis ne sont pas identiques, Réessayez";
+            $diffpass = "Vos mots de passe saisis ne sont pas identiques, Réessayez";
         }
-        if ($errors === 0) {
+        if ($errors === 0) { // si aucunes erreur changement du pswd
             $pass_hache = password_hash($_POST['newpass'], PASSWORD_DEFAULT);
             updatePass($pass_hache, $username);
-            $confirmPassword = 'Votre mot de passe a bien été changé';
+            $confirmpassword = 'Votre mot de passe a bien été changé';
+        }
         }
     }
-}
 ?>
+
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
     <head>
@@ -81,6 +87,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input type="submit" value="Valider les changements">
                 </form>
             </section>
-            
         </main>
         <?php include("includes/footer.php"); ?>
