@@ -37,6 +37,7 @@
                         <div class="acteur">
                             <div class="presentation_acteur">
                                 <img class="logo_acteur" src="<?= 'img' . DIRECTORY_SEPARATOR . $actor['filename']; ?>" alt="logo de l'acteur">
+                                <!-- DIRECTORY_SEPARATOR sert a eviter les pb de chemin lors du deploiement-->
                                 <div class="description">
                                     <h3><?= $actor['name']; ?></h3>
                                     <p><?= substr($actor['description'], 0, 69) . '...'; ?></p>

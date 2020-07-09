@@ -57,9 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </head>
     <body>
         <?php include("includes/header.php"); ?>
-
         <main id="account">
-            <p><h1><?= $_SESSION['lastname'] ?> <?= $_SESSION['firstname'] ?></h1></p>
+            <h1><?= $_SESSION['lastname'] ?> <?= $_SESSION['firstname'] ?></h1>
             <section class="form">
                 <h2>Changer mon nom d'utilisateur</h2>
                 <form method="post">

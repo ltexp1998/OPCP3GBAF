@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($_POST['register_form'] == 'register') {
-        $lastname = htmlspecialchars($_POST['lastname']);
+        $lastname = htmlspecialchars($_POST['lastname']); //formatage pour eviter entree incoherentes
         $firstname = htmlspecialchars($_POST['firstname']);
         $username = htmlspecialchars($_POST['username']);
         $pass = htmlspecialchars($_POST['pass']);
@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $answer = htmlspecialchars($_POST['answer']);
         $errors = 0;
         $errorsmsg = [];
-        if (empty($lastname) OR strlen($lastname) > 45) {
+        if (empty($lastname) OR strlen($lastname) > 45) { //verification longueur de l'entree
             $errors++;
             $errorsmsg['lastname'] = 'Le nom est vide ou est trop long';
         }
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors++;
             $errorsmsg['answer'] = 'La réponse est vide ou est trop longue';
         }
-        if ($errors === 0) {
+        if ($errors === 0) { // si tout est ok creation du newuser et cryptage du pswd
                 $pass_hache = password_hash($pass, PASSWORD_DEFAULT);
                 createNewuser($lastname, $firstname, $username, $pass_hache, $question, $answer);
                 header('Location: index.php');

@@ -1,34 +1,34 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if ($_POST['change_pass_form'] == 'username') {
-        $username = htmlspecialchars($_POST['username'] );
-        $userexist = getUser($username);
-        $question = $userexist['question'];
+    if ($_POST['change_pass_form'] == 'username') { // demande username
+        $username = htmlspecialchars($_POST['username'] ); // formatage username pour eviter entree incoherente
+        $userexist = getUser($username); // verification username
+        $question = $userexist['question']; // si username ok demande la réponse a la question
         if (empty($userexist)) {
-            $errorusername = 'Utilisateur inconnu';
+            $errorusername = 'Utilisateur inconnu'; // sinon anonce utilisateur inconnu
         }
     }
-    if ($_POST['change_pass_form'] == 'question') {
-        $answer = htmlspecialchars($_POST['answer']);
-        $username = $_POST['username'];
-        $answerexist = getAnswer($answer, $username);
+    if ($_POST['change_pass_form'] == 'question') { // demande la reponse a la question
+        $answer = htmlspecialchars($_POST['answer']); // formatage réponse pour eviter entree incoherente
+        $username = $_POST['username']; // recuperation du username
+        $answerexist = getAnswer($answer, $username); // corelation username reponse question
         if (empty($answerexist)) {
-            $erroranswer = 'Réponse incorrecte';
+            $erroranswer = 'Réponse incorrecte'; // si reponse incorrecte renvoi a question
             $userexist = getUser($username);
             $question = $userexist['question'];
         }
     }
-    if ($_POST['change_pass_form'] == 'newpass') {
-        $username = $_POST['username'];
-        $newpass = htmlspecialchars($_POST['newpass']);
-        $checkpass = htmlspecialchars($_POST['checkpass']);
-        if (empty($newpass) OR strlen($newpass) > 70 OR strlen($newpass) < 4) {
+    if ($_POST['change_pass_form'] == 'newpass') { // modification du pswd
+        $username = $_POST['username']; // recuperation du username
+        $newpass = htmlspecialchars($_POST['newpass']); // formatage du pswr pour eviter entree incoherente
+        $checkpass = htmlspecialchars($_POST['checkpass']); // formatage de la 2eme entree du pswd
+        if (empty($newpass) OR strlen($newpass) > 70 OR strlen($newpass) < 4) { // verification de la longueur du pswd
             $errorpass = 'Le mot de passe est vide ou est trop long ou trop court';
         } else {
-            if ($newpass != $checkpass) {
+            if ($newpass != $checkpass) { // verification que les 2 entree soient identiques
                 $diffpass = 'Le mot de passe n\'est pas identique';
             } else {
-                $pass_hache = password_hash($newpass, PASSWORD_DEFAULT);
+                $pass_hache = password_hash($newpass, PASSWORD_DEFAULT); // criptage du psqd
                 updatePass($pass_hache, $username);
                 header('Location: index.php');
                 exit();
