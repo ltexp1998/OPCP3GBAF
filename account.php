@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('db/connexion.php');
-require('fonctions/fonctionsql.php');
+require('functions/functionsql.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($_POST['account_form'] == 'username') {
@@ -83,7 +83,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <p class="error"><?= isset($errorpass) ? $errorpass : '' ?></p>
                     <p><label for="checkpass">Confirmation du nouveau mot de passe : </label><br /><input type="password" name="checkpass" id="checkpass" required /></p>
                     <p class="error"><?= isset($diffpass) ? $diffpass : '' ?></p>
-                    <p class="error"><?= isset($errorpass) ? $errorpass : '' ?></p>
                     <p class="confirm"><?= isset($confirmpassword) ? $confirmpassword : '' ?></p>
                     <input type="submit" value="Valider les changements">
                 </form>

@@ -1,6 +1,6 @@
+
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
-<header>
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width" />
@@ -8,8 +8,8 @@
         <title>Nouveau mot de passe</title>
         <link rel="icon" sizes="144x144" href="img/fav_icon_gbaf.png">
     </head>
-    <a href="index.php"><img id="logo" src="img/logo_gbaf.png" alt="logo de GBAF"/></a>
-    <div id="user">
-        <p><a href="account.php"><?= $_SESSION['firstname']; ?> <?= $_SESSION['lastname']; ?></a><br/><a href="logout.php">Se déconnecter</a></p>
-    </div>
-</header>
+    <body>
+        <div id="header_form">
+            <a href="index.php"><img id="logo" src="img/logo_gbaf.png" alt="logo de GBAF"/></a>
+            <p>Le Groupement Banque Assurance Français</p>
+        </div>

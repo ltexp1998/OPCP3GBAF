@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="fr" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width" />
-        <link rel="stylesheet" href="style.css"/>
-        <title><?= $actor['name']; ?></title>
-        <link rel="icon" sizes="144x144" href="img/fav_icon_gbaf.png">
-    </head>
+<?php include ('includes/header.php'); ?>
     <body>
-        <?php include("includes/header.php"); ?>
         <br/>
         <main>
             <section id="presentation_acteur">

@@ -1,5 +1,5 @@
 <?php
-//faire un fichier par usage plutot qu'un global
+
 function getactors() {
     require('db/connexion.php');
     $listactor = $db->query('SELECT * FROM actor');
@@ -8,7 +8,7 @@ function getactors() {
 }
 
 function getuser($username) {
-    require('db/connexion.php'); //a sup partout
+    require('db/connexion.php');
     $req = $db->prepare('SELECT id, lastname, firstname, username, password, question, answer FROM user WHERE username = ?');
     $req->execute(array($username));
     $user = $req->fetch();
@@ -17,8 +17,8 @@ function getuser($username) {
 
 function getanswer($answer, $username) {
     require('db/connexion.php');
-    $req = $db->prepare('SELECT id, lastname, firstname, username, password, question, answer FROM user WHERE answer = :answer AND username = ?'); //a corriger partout =:
-    $req->execute(array($answer, $username)); // faire comme ligne 43
+    $req = $db->prepare('SELECT id, lastname, firstname, username, password, question, answer FROM user WHERE answer = ? AND username = ?');
+    $req->execute(array($answer, $username));
     $answer = $req->fetch();
     return $answer;
 }

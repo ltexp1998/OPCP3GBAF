@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr" dir="ltr">
-    <head>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width" />
-        <link rel="stylesheet" href="style.css"/>
-        <title>Groupement Banque Assurance Français</title>
-        <link rel="icon" sizes="144x144" href="img/fav_icon_gbaf.png">
-    </head>
-    <body>
-        <?php include("includes/header.php"); ?>
+<?php include("includes/header.php"); ?>
         <main>
             <section id="presentation">
                 <h1>Présentation du Groupement Banque Assurance Français</h1>
