@@ -11,6 +11,11 @@
                     <h2><?= $actor['name']; ?></h2>
                     <p><?= $actor['description']; ?></p>
                 </div>
+<!--  -->
+
+
+
+<!--  -->
             </section>
         </main>
     <?php include("includes/footer.php");?>
