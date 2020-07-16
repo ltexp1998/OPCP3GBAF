@@ -1,4 +1,18 @@
-<?php include("includes/header.php"); ?>
+<?php
+    require_once('functions/functionsql.php');
+    $pageTitle = 'Groupement Banque Assurance Français';
+    $actors = getActors();
+    $likes = getLikes();
+    $dislikes = getDislikes();
+    $likesByActor = [];
+    foreach ($likes as $like) {
+        $likesByActor += array($like['actor_id'] => $like['nb_likes']);
+    }
+    $dislikesByActor = [];
+    foreach ($dislikes as $dislike) {
+        $dislikesByActor += array($dislike['actor_id'] => $dislike['nb_dislikes']);
+    } include("includes/header.php"); 
+?>
         <main>
             <section id="presentation">
                 <h1>Présentation du Groupement Banque Assurance Français</h1>
@@ -33,8 +47,18 @@
                                     <p><?= substr($actor['description'], 0, 69) . '...'; ?></p>
                                 </div>
                             </div>
-                            <a class="button" href="actor.php?id_actor=<?= $actor['id']; ?>">Lire la suite</a>
+                            <div class="votesButton">
+                                <div class="homeVotes">
+                                    <p><img src="img/like.png" alt="like" />  <?php if ($likesByActor[$actor['id']] == NULL) {
+                                    echo 0;
+                                    } else {echo $likesByActor[$actor['id']];} ?></span></p>
+                                    <p><img src="img/dislike.png" alt="dislike" /> <?php if ($dislikesByActor[$actor['id']] == NULL) {
+                                    echo 0;
+                                    } else {echo $dislikesByActor[$actor['id']];} ?></span></p>
+                                </div>
+                                <a class="button" href="actor.php?id_actor=<?= $actor['id']; ?>">Lire la suite</a>
+                            </div>
                         </div>
-                    <?php endforeach; ?>
+                        <?php endforeach; ?>
                 </div>
             </section>
