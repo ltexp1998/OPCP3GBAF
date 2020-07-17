@@ -3,7 +3,7 @@ if (!isset($_SESSION['username'])) {
     header('Location: index.php');
     exit();
 }
-require('db/connexion.php');
+require('db/connection.php');
 $user = getUser($_SESSION['username']);
 $commentExist = getCommentExist($_GET['id_actor'],$user['id']);
 $voteExist = getVoteExist($_GET['id_actor'],$user['id']);
@@ -51,9 +51,9 @@ $votesByActor = [];
 foreach ($votes as $vote) {
     $votesByActor += array($vote['user_id'] => $vote['vote']);
 }
-
-include("includes/header.php");
 ?>
+
+<?php include("includes/header.php"); ?>
         <main>
             <section id="presentation_acteur">
                 <div class="logo_page_acteur">
@@ -110,7 +110,7 @@ include("includes/header.php");
                         <div class="head_comment">
                             <div>
                                 <p class="firstname"><?= $comment['firstname'] ?></p>
-                                <p class="date_add">Posté le <?= $comment['date_add_fr'] ?></p>
+                                <p class="created_at">Posté le <?= $comment['created_at_fr'] ?></p>
                             </div>
                             <?php if ($votesByActor[$comment['id']] === '1') : ?>
                                 <p><img src="img/like.png" alt="like" /> </p>

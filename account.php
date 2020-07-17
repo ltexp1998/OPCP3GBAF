@@ -5,7 +5,7 @@ if (!isset($_SESSION['username'])) {
     header('Location: index.php');
     exit();
 }
-require('db/connexion.php');
+require('db/connection.php');
 require('functions/functionsql.php');
 
 $user = getUser($_SESSION['username']);
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } elseif ($newpass != $checkpass) {
             $diffPass = "Vos mots de passe saisis ne sont pas identiques, Réessayez";
         } else {
-            $pass_hache = password_hash($_POST['newpass'], PASSWORD_DEFAULT);
+            $pass_hache = password_hash($_POST['newpass'], PASSWORD_BCRYPT);
             updatePass($pass_hache, $_SESSION['username']);
             $confirmPassword = 'Votre mot de passe a bien été changé';
         }

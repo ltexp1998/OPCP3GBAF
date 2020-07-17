@@ -11,8 +11,10 @@
     $dislikesByActor = [];
     foreach ($dislikes as $dislike) {
         $dislikesByActor += array($dislike['actor_id'] => $dislike['nb_dislikes']);
-    } include("includes/header.php"); 
+    }
 ?>
+
+    <?php include("includes/header.php"); ?>
         <main>
             <section id="presentation">
                 <h1>Présentation du Groupement Banque Assurance Français</h1>
@@ -44,7 +46,7 @@
                                 <!-- DIRECTORY_SEPARATOR sert a eviter les pb de chemin lors du deploiement-->
                                 <div class="description">
                                     <h3><?= $actor['name']; ?></h3>
-                                    <p><?= substr($actor['description'], 0, 69) . '...'; ?></p>
+                                    <p><?= substr($actor['description'], 0, 248) . '...'; ?></p>
                                 </div>
                             </div>
                             <div class="votesButton">

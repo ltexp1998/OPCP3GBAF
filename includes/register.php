@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errorsmsg['answer'] = 'La réponse est vide ou est trop longue';
         }
         if ($errors === 0) { // si tout est ok creation du newuser et cryptage du pswd
-                $pass_hache = password_hash($pass, PASSWORD_DEFAULT);
+                $pass_hache = password_hash($pass, PASSWORD_BCRYPT);
                 createNewuser($lastname, $firstname, $username, $pass_hache, $question, $answer);
                 header('Location: index.php');
                 exit();
@@ -52,20 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="fr" dir="ltr">
-    <head>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width" />
-        <link rel="stylesheet" href="style.css"/>
-        <title>Inscription sur le site GBAF</title>
-        <link rel="icon" sizes="144x144" href="img/fav_icon_gbaf.png">
-    </head>
-    <body>
-        <div id="header_form">
-            <a href="index.php"><img id="logo" src="img/logo_gbaf.png" alt="logo de GBAF"/></a>
-            <p>Le Groupement Banque Assurance Français</p>
-        </div>
+
+<?php include('headerregister.php') ?>
         <main>
             <section class="form">
                 <h1>Inscription</h1>

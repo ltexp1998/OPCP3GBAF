@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($newpass != $checkpass) { // verification que les 2 entree soient identiques
                 $diffpass = 'Le mot de passe n\'est pas identique';
             } else {
-                $pass_hache = password_hash($newpass, PASSWORD_DEFAULT); // criptage du psqd
+                $pass_hache = password_hash($newpass, PASSWORD_BCRYPT); // criptage du pswd
                 updatePass($pass_hache, $username);
                 header('Location: index.php');
                 exit();
@@ -37,20 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="fr" dir="ltr">
-    <head>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width" />
-        <link rel="stylesheet" href="style.css"/>
-        <title>Nouveau mot de passe</title>
-        <link rel="icon" sizes="144x144" href="img/fav_icon_gbaf.png">
-    </head>
-    <body>
-        <div id="header_form">
-            <a href="index.php"><img id="logo" src="img/logo_gbaf.png" alt="logo de GBAF"/></a>
-            <p>Le Groupement Banque Assurance Français</p>
-        </div>
+
+<?php include('headerregister.php') ?>
         <main>
             <section class="form">
                 <h1>Changer votre mot de passe</h1>

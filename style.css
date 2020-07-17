@@ -181,9 +181,6 @@ li::first-line {
         text-decoration: none;
         color: solid white;
     }
-}
-
-@media screen and (max-device-width: 700px) {
     .acteur {
         padding: 20px 50px 20px 50px;
         width: 80%;
@@ -302,7 +299,9 @@ li::first-line {
 .commentaires p {
     margin: 0 0;
 }
-
+.form_newComment div form p textarea {
+    width: 100%;
+}
 /* account */
 
 #account section {
