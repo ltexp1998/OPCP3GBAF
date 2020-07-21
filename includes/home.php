@@ -12,6 +12,12 @@
     foreach ($dislikes as $dislike) {
         $dislikesByActor += array($dislike['actor_id'] => $dislike['nb_dislikes']);
     }
+    // le & qui permet d'enregistrer les modifications faites dans la fonction
+    //$tableau;
+    //foreach ($tableau as &$ligne) {
+    //    $ligne++;
+    //}
+
 ?>
 
     <?php include("includes/header.php"); ?>
@@ -51,12 +57,13 @@
                             </div>
                             <div class="votesButton">
                                 <div class="homeVotes">
-                                    <p><img src="img/like.png" alt="like" />  <?php if ($likesByActor[$actor['id']] == NULL) {
-                                    echo 0;
-                                    } else {echo $likesByActor[$actor['id']];} ?></span></p>
-                                    <p><img src="img/dislike.png" alt="dislike" /> <?php if ($dislikesByActor[$actor['id']] == NULL) {
-                                    echo 0;
-                                    } else {echo $dislikesByActor[$actor['id']];} ?></span></p>
+                                    <p><img src="img/like.png" alt="like" />
+
+                                    <?= ($likesByActor[$actor['id']] == NULL) ? '0' : $likesByActor[$actor['id']]; ?>
+
+                                    <p><img src="img/dislike.png" alt="dislike" />
+                                   
+                                    <?= ($dislikesByActor[$actor['id']] == NULL) ? '0' : $dislikesByActor[$actor['id']]; ?>
                                 </div>
                                 <a class="button" href="actor.php?id_actor=<?= $actor['id']; ?>">Lire la suite</a>
                             </div>

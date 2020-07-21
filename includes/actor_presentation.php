@@ -54,6 +54,7 @@ foreach ($votes as $vote) {
 ?>
 
 <?php include("includes/header.php"); ?>
+    <body>
         <main>
             <section id="presentation_acteur">
                 <div class="logo_page_acteur">
@@ -80,7 +81,7 @@ foreach ($votes as $vote) {
                     </div>
                 <?php } else { ?>
                     <div class="newComment">
-                        <p>Vous avez déjà voté pour cet acteur</p>
+                        <p><strong> Vous avez déjà voté pour cet acteur </strong></p>
                     </div>
                 <?php }
                 if (empty($commentExist)) { ?>
@@ -100,7 +101,7 @@ foreach ($votes as $vote) {
                     </div>
                 <?php } else { ?>
                     <div class="newComment">
-                        <p>Vous avez déjà commenté cet acteur</p>
+                        <p><strong> Vous avez déjà commenté cet acteur </strong></p>
                     </div>
                 <?php }?>
                 <div>
@@ -109,8 +110,8 @@ foreach ($votes as $vote) {
                     <div class="commentaires">
                         <div class="head_comment">
                             <div>
-                                <p class="firstname"><?= $comment['firstname'] ?></p>
-                                <p class="created_at">Posté le <?= $comment['created_at_fr'] ?></p>
+                                <p class="firstname"><strong>Posté par : </strong><?= $comment['firstname'] ?></p>
+                                <p class="created_at"><strong>Posté le : </strong><?= $comment['created_at_fr'] ?></p>
                             </div>
                             <?php if ($votesByActor[$comment['id']] === '1') : ?>
                                 <p><img src="img/like.png" alt="like" /> </p>
@@ -118,10 +119,11 @@ foreach ($votes as $vote) {
                                 <p><img src="img/dislike.png" alt="dislike" /></p>
                             <?php endif; ?>
                         </div>
-                        <p class="comment"><?= $comment['comment']; ?></p>
+                        <p class="comment"><strong>Commentaire :</strong> </br><?= $comment['comment']; ?></p>
                     </div>
                 <?php endforeach; ?>
                 </div>
             </section>
         </main>
-        <?php include("includes/footer.php"); ?>
+
+    <?php include("includes/footer.php"); ?>

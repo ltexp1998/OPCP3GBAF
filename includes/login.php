@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $username = htmlspecialchars($_POST['username']);
         $pass = htmlspecialchars($_POST['pass']);
         $user = getUser($username);
-        $isPasswordCorrect = password_verify($pass, @$user['password']);
+        $isPasswordCorrect = password_verify($pass, $user['password']);
         if ($isPasswordCorrect) {
             $_SESSION['lastname'] = $user['lastname'];
             $_SESSION['firstname'] = $user['firstname'];
@@ -42,6 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <p><input type="submit" value="Se connecter" /></p>
                 </form>
                 <p>Pas encore de compte ? <a href="index.php?action=register">Inscrivez-vous !</a></p>
-                <p>Mot de passe oublié ? <a href="index.php?action=forgetpass">Créer un nouveau mot de passe</a></p>
+                <p>Mot de passe oublié ? <a href="index.php?page=forgetpass">Créer un nouveau mot de passe</a></p>
             </section>
         </main>
