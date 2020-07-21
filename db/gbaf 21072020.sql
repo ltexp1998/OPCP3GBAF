@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le :  ven. 17 juil. 2020 à 11:51
+-- Généré le :  mar. 21 juil. 2020 à 08:23
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.4.2
 
@@ -57,7 +57,13 @@ CREATE TABLE `comment` (
 
 INSERT INTO `comment` (`id`, `comment`, `created_at`, `actor_id`, `user_id`) VALUES
 (5, 'test', '2020-07-16 11:39:44', 1, 1),
-(6, 'test commentaire 170720201028', '2020-07-17 10:28:59', 2, 2);
+(6, 'test commentaire 170720201028', '2020-07-17 10:28:59', 2, 2),
+(7, 'test commentaire local', '2020-07-21 09:44:08', 1, 4),
+(8, 'commentaire local', '2020-07-21 09:51:54', 2, 4),
+(9, 'commentaire local', '2020-07-21 09:52:12', 3, 4),
+(10, 'commentaire local', '2020-07-21 10:00:56', 4, 4),
+(11, 'test commentaires', '2020-07-21 10:11:35', 4, 2),
+(12, 'commentaires test\r\nBLA BLA BLA\r\nBLA BLA BLA\r\nBLA BLA BLA\r\nBLA BLA BLA\r\nBLA BLA BLA\r\nBLA BLA BLA\r\nBLA BLA BLA\r\n\r\n', '2020-07-21 10:22:29', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -81,8 +87,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `lastname`, `firstname`, `username`, `password`, `question`, `answer`) VALUES
 (1, 'THOMAS', 'stephane', 'ltexp1998', '$2y$10$MffgovBRyRHgYaqFC1CRb.yBk/cJnWl7eeaaaDJG/6Z7Pqad4ae9W', 'username', 'ltexp1998'),
-(2, 'test', 'test', 'test', '$2y$10$9BuaMAnbJ8QjMCkUE/SdSerCcOeqxl7yGI4sP.ywmGzdOJk3nvMNW', 'test', 'test'),
-(3, 'nom', 'prenom', 'username', '$2y$10$wEG//CWLNRepBbOJV3PzTuslf3F8uyQseAzHaMuznF0i5YrEg.t/.', 'password', 'password');
+(2, 'test', 'test', 'test', '$2y$10$ca28GkTeF/CyNHbrGaQZPuF4L02KaTHjpRZ.nJo/fNsDpL/4xSGIq', 'test', 'test'),
+(3, 'nom', 'prenom', 'username', '$2y$10$wEG//CWLNRepBbOJV3PzTuslf3F8uyQseAzHaMuznF0i5YrEg.t/.', 'password', 'password'),
+(4, 'NOM test local', 'PRENOM test local', 'local', '$2y$10$gMkBfufT418M0oIHh.zf.eRJuu9s4C3XvMPqWIAl.Yqpm2ryEkmwS', 'local', 'local');
 
 -- --------------------------------------------------------
 
@@ -111,7 +118,10 @@ INSERT INTO `vote` (`id`, `vote`, `actor_id`, `user_id`) VALUES
 (32, 1, 3, 3),
 (33, 1, 4, 3),
 (34, 1, 1, 1),
-(35, 1, 1, 1);
+(36, 1, 1, 4),
+(39, 1, 2, 4),
+(40, 0, 3, 4),
+(41, 0, 4, 4);
 
 --
 -- Index pour les tables déchargées
@@ -160,19 +170,19 @@ ALTER TABLE `actor`
 -- AUTO_INCREMENT pour la table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `vote`
 --
 ALTER TABLE `vote`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- Contraintes pour les tables déchargées
