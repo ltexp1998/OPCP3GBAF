@@ -49,7 +49,7 @@ $listVotes = getVoteByActor($_GET['id_actor']);
 $votes = $listVotes->fetchAll();
 $votesByActor = [];
 foreach ($votes as $vote) {
-    $votesByActor += array($vote['user_id'] => $vote['vote']);
+    $votesByActor += [$vote['user_id'] => $vote['vote']];
 }
 ?>
 

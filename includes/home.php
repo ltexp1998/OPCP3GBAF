@@ -6,11 +6,11 @@
     $dislikes = getDislikes();
     $likesByActor = [];
     foreach ($likes as $like) {
-        $likesByActor += array($like['actor_id'] => $like['nb_likes']);
+        $likesByActor += [$like['actor_id'] => $like['nb_likes']];
     }
     $dislikesByActor = [];
     foreach ($dislikes as $dislike) {
-        $dislikesByActor += array($dislike['actor_id'] => $dislike['nb_dislikes']);
+        $dislikesByActor += [$dislike['actor_id'] => $dislike['nb_dislikes']];
     }
     // le & qui permet d'enregistrer les modifications faites dans la fonction
     //$tableau;

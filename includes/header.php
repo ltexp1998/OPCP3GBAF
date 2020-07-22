@@ -8,7 +8,7 @@
         <title>GBAF</title>
         <link rel="icon" sizes="144x144" href="img/fav_icon_gbaf.png">
     </head>
-    <a href="index.php"><img id="logo" src="img/logo_gbaf.png" alt="logo de GBAF"/></a>
+    <a href="index.php"><img id="logo" src="img/logo_gbaf.png"/></a>
     <div id="user">
         <p><a href="account.php"><?= $_SESSION['firstname']; ?> <?= $_SESSION['lastname']; ?></a><br/><a href="logout.php">Se déconnecter</a></p>
     </div>
