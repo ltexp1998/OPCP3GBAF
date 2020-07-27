@@ -137,7 +137,8 @@ li::first-line {
 
 .description {
     margin-left: 20px;
-    width: 60%;
+    width: 450px;
+
 }
 .votesButton {
     display: flex;

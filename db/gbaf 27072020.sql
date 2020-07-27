@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le :  mar. 21 juil. 2020 à 08:23
+-- Généré le :  lun. 27 juil. 2020 à 15:22
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.4.2
 
@@ -32,8 +32,8 @@ CREATE TABLE `actor` (
 --
 
 INSERT INTO `actor` (`id`, `name`, `description`, `filename`) VALUES
-(1, 'Formation&co', 'Formation&co est une association française présente sur tout le territoire.<br /><br />\r\nNous proposons à des personnes issues de tout milieu de devenir entrepreneur grâce à un crédit et un accompagnement professionnel et personnalisé.<br /><br />\r\nNotre proposition :<br /><br />\r\n●	Un financement jusqu’à 30 000€ ;<br />\r\n●	Un suivi personnalisé et gratuit ;<br />\r\n●	Une lutte acharnée contre les freins sociétaux et les stéréotypes.<br /><br />\r\nLe financement est possible, peu importe le métier : coiffeur, banquier, éleveur de chèvres… .<br /><br />\r\nNous collaborons avec des personnes talentueuses et motivées.<br /><br />\r\nVous n’avez pas de diplômes ? Ce n’est pas un problème pour nous ! Nos financements s’adressent à tous.\r\n', 'logo_formationco.png'),
-(2, 'Protectpeople', 'Protectpeople finance la solidarité nationale.<br /><br />\r\nNous appliquons le principe édifié par la Sécurité sociale française en 1945 : permettre à chacun de bénéficier d’une protection sociale.<br /><br />\r\n\r\nChez Protectpeople, chacun cotise selon ses moyens et reçoit selon ses besoins.<br /><br />\r\nProectecpeople est ouvert à tous, sans considération d’âge ou d’état de santé.<br /><br />\r\nNous garantissons un accès aux soins et une retraite.<br /><br />\r\nChaque année, nous collectons et répartissons 300 milliards d’euros.<br /><br />\r\nNotre mission est double :<br /><br />\r\n●	Sociale : nous garantissons la fiabilité des données sociales ;<br />\r\n●	Economique : nous apportons une contribution aux activités économiques.\r\n', 'logo_protectpeople.png'),
+(1, 'Formation&co', 'Formation&co est une association française présente sur tout le territoire. <br /><br />\r\nNous proposons à des personnes issues de tout milieu de devenir entrepreneur grâce à un crédit et un accompagnement professionnel et personnalisé.<br /><br />\r\nNotre proposition :<br /><br />\r\n●	Un financement jusqu’à 30 000€ ;<br />\r\n●	Un suivi personnalisé et gratuit ;<br />\r\n●	Une lutte acharnée contre les freins sociétaux et les stéréotypes.<br /><br />\r\nLe financement est possible, peu importe le métier : coiffeur, banquier, éleveur de chèvres… .<br /><br />\r\nNous collaborons avec des personnes talentueuses et motivées.<br /><br />\r\nVous n’avez pas de diplômes ? Ce n’est pas un problème pour nous ! Nos financements s’adressent à tous.\r\n', 'logo_formationco.png'),
+(2, 'Protectpeople', 'Protectpeople finance la solidarité nationale. Nous appliquons le principe édifié par la Sécurité sociale française en 1945 : permettre à chacun de bénéficier d’une protection sociale.<br /><br />\r\n\r\nChez Protectpeople, chacun cotise selon ses moyens et reçoit selon ses besoins.<br /><br />\r\nProectecpeople est ouvert à tous, sans considération d’âge ou d’état de santé.<br /><br />\r\nNous garantissons un accès aux soins et une retraite.<br /><br />\r\nChaque année, nous collectons et répartissons 300 milliards d’euros.<br /><br />\r\nNotre mission est double :<br /><br />\r\n●	Sociale : nous garantissons la fiabilité des données sociales ;<br />\r\n●	Economique : nous apportons une contribution aux activités économiques.\r\n', 'logo_protectpeople.png'),
 (3, 'DSA France', 'Dsa France accélère la croissance du territoire et s’engage avec les collectivités territoriales.<br /><br />\r\nNous accompagnons les entreprises dans les étapes clés de leur évolution.<br /><br />\r\nNotre philosophie : s’adapter à chaque entreprise.<br /><br />\r\nNous les accompagnons pour voir plus grand et plus loin et proposons des solutions de financement adaptées à chaque étape de la vie des entreprises.', 'logo_dsafrance.png'),
 (4, 'CDE', 'La CDE (Chambre Des Entrepreneurs) accompagne les entreprises dans leurs démarches de formation.<br /><br />\r\nSon président est élu pour 3 ans par ses pairs, chefs d’entreprises et présidents des CDE.<br /><br />\r\n', 'logo_cde.png');
 
@@ -58,10 +58,6 @@ CREATE TABLE `comment` (
 INSERT INTO `comment` (`id`, `comment`, `created_at`, `actor_id`, `user_id`) VALUES
 (5, 'test', '2020-07-16 11:39:44', 1, 1),
 (6, 'test commentaire 170720201028', '2020-07-17 10:28:59', 2, 2),
-(7, 'test commentaire local', '2020-07-21 09:44:08', 1, 4),
-(8, 'commentaire local', '2020-07-21 09:51:54', 2, 4),
-(9, 'commentaire local', '2020-07-21 09:52:12', 3, 4),
-(10, 'commentaire local', '2020-07-21 10:00:56', 4, 4),
 (11, 'test commentaires', '2020-07-21 10:11:35', 4, 2),
 (12, 'commentaires test\r\nBLA BLA BLA\r\nBLA BLA BLA\r\nBLA BLA BLA\r\nBLA BLA BLA\r\nBLA BLA BLA\r\nBLA BLA BLA\r\nBLA BLA BLA\r\n\r\n', '2020-07-21 10:22:29', 1, 2);
 
@@ -88,8 +84,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `lastname`, `firstname`, `username`, `password`, `question`, `answer`) VALUES
 (1, 'THOMAS', 'stephane', 'ltexp1998', '$2y$10$MffgovBRyRHgYaqFC1CRb.yBk/cJnWl7eeaaaDJG/6Z7Pqad4ae9W', 'username', 'ltexp1998'),
 (2, 'test', 'test', 'test', '$2y$10$ca28GkTeF/CyNHbrGaQZPuF4L02KaTHjpRZ.nJo/fNsDpL/4xSGIq', 'test', 'test'),
-(3, 'nom', 'prenom', 'username', '$2y$10$wEG//CWLNRepBbOJV3PzTuslf3F8uyQseAzHaMuznF0i5YrEg.t/.', 'password', 'password'),
-(4, 'NOM test local', 'PRENOM test local', 'local', '$2y$10$gMkBfufT418M0oIHh.zf.eRJuu9s4C3XvMPqWIAl.Yqpm2ryEkmwS', 'local', 'local');
+(3, 'nom', 'prenom', 'username', '$2y$10$wEG//CWLNRepBbOJV3PzTuslf3F8uyQseAzHaMuznF0i5YrEg.t/.', 'password', 'password');
 
 -- --------------------------------------------------------
 
@@ -117,11 +112,7 @@ INSERT INTO `vote` (`id`, `vote`, `actor_id`, `user_id`) VALUES
 (31, 0, 2, 3),
 (32, 1, 3, 3),
 (33, 1, 4, 3),
-(34, 1, 1, 1),
-(36, 1, 1, 4),
-(39, 1, 2, 4),
-(40, 0, 3, 4),
-(41, 0, 4, 4);
+(34, 1, 1, 1);
 
 --
 -- Index pour les tables déchargées
@@ -164,7 +155,7 @@ ALTER TABLE `vote`
 -- AUTO_INCREMENT pour la table `actor`
 --
 ALTER TABLE `actor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `comment`
@@ -192,12 +183,12 @@ ALTER TABLE `vote`
 -- Contraintes pour la table `comment`
 --
 ALTER TABLE `comment`
-  ADD CONSTRAINT `fk_gbaf_comment_gbaf_actor1` FOREIGN KEY (`actor_id`) REFERENCES `actor` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_gbaf_comment_gbaf_member1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_gbaf_comment_gbaf_actor1` FOREIGN KEY (`actor_id`) REFERENCES `actor` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_gbaf_comment_gbaf_member1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `vote`
 --
 ALTER TABLE `vote`
-  ADD CONSTRAINT `fk_gbaf_vote_gbaf_actor1` FOREIGN KEY (`actor_id`) REFERENCES `actor` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_gbaf_vote_gbaf_member1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_gbaf_vote_gbaf_actor1` FOREIGN KEY (`actor_id`) REFERENCES `actor` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_gbaf_vote_gbaf_member1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;

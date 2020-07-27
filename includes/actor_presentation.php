@@ -105,7 +105,7 @@ foreach ($votes as $vote) {
                     </div>
                 <?php }?>
                 <div>
-                    <h2>Commentaires</h2>
+                    <h2>Commentaires :</h2>
                     <?php foreach ($comments AS $comment) : ?>
                     <div class="commentaires">
                         <div class="head_comment">

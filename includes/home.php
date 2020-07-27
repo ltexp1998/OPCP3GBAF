@@ -52,7 +52,7 @@
                                 <!-- DIRECTORY_SEPARATOR sert a eviter les pb de chemin lors du deploiement-->
                                 <div class="description">
                                     <h3><?= $actor['name']; ?></h3>
-                                    <p><?= substr($actor['description'], 0, 248) . '...'; ?></p>
+                                    <p><?= substr($actor['description'], 0, 65) . '...'; ?></p>
                                 </div>
                             </div>
                             <div class="votesButton">
