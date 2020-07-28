@@ -68,6 +68,6 @@
                                 <a class="button" href="actor.php?id_actor=<?= $actor['id']; ?>">Lire la suite</a>
                             </div>
                         </div>
-                        <?php endforeach; ?>
+                    <?php endforeach; ?>
                 </div>
             </section>

@@ -26,7 +26,7 @@ header #logo {
     color: black;
 }
 
-@media screen and (max-device-width: 700px) {
+@media screen and (max-width: 700px) {
     header {
         flex-direction: column;
         align-items: center;
@@ -113,7 +113,7 @@ li::first-line {
 
 .acteur {
     width: 98%;
-    margin: 10px 0;
+    margin: 10px;
     padding: 20px;
     display: flex;
     flex-direction: row;
@@ -162,7 +162,7 @@ li::first-line {
     opacity: 0.8;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 800px) {
     #presentation .listeacteurs {
         display: flex;
         justify-content: center;
@@ -173,23 +173,20 @@ li::first-line {
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
     .acteur {
         flex-direction: column;
+        padding: 20px 50px 20px 50px;
+        width: 80%;
     }
     .votesButton {
-        flex-direction: row;
-        justify-content: space-between;
+        width: 150px;
+        margin-left: auto;
     }
     .button {
         align-self: flex-end;
         white-space: nowrap;
         text-decoration: none;
-        color: solid white;
-    }
-    .acteur {
-        padding: 20px 50px 20px 50px;
-        width: 80%;
     }
 
     .presentation_acteur {
@@ -220,11 +217,11 @@ li::first-line {
     }
 
     .presentationListActeurs li {
-        margin: 10;
+        margin: 10px;
     }
 
     #illustration img {
-        width: 135%;
+        width: 100%;
     }
 }
 
@@ -232,7 +229,7 @@ li::first-line {
 
 #presentation_acteur {
     padding: 10px 30px 30px 20px;
-    background-color: solid white;
+    background-color: white;
     border: solid 1px red;
     border-radius: 10px;
 }
@@ -282,7 +279,7 @@ li::first-line {
     display: flex;
     align-items: center;
     padding: 5px;
-    background-color: solid white;
+    background-color: white;
 }
 
 .actions p {
@@ -304,7 +301,7 @@ li::first-line {
 
 #account section {
     padding: 30px;
-    background-color: solid white;
+    background-color: white;
     border: solid 1px red;
     border-radius: 10px;
 }
