@@ -1,6 +1,7 @@
 <?php
     require_once('functions/functionsql.php');
     $pageTitle = 'Groupement Banque Assurance Français';
+    //Récupération des données pour construction de la page
     $actors = getActors();
     $likes = getLikes();
     $dislikes = getDislikes();
@@ -12,11 +13,6 @@
     foreach ($dislikes as $dislike) {
         $dislikesByActor += [$dislike['actor_id'] => $dislike['nb_dislikes']];
     }
-    // le & qui permet d'enregistrer les modifications faites dans la fonction
-    //$tableau;
-    //foreach ($tableau as &$ligne) {
-    //    $ligne++;
-    //}
 
 ?>
 
@@ -49,7 +45,6 @@
                         <div class="acteur">
                             <div class="presentation_acteur">
                                 <img class="logo_acteur" src="<?= 'img' . DIRECTORY_SEPARATOR . $actor['filename']; ?>" alt="logo de l'acteur">
-                                <!-- DIRECTORY_SEPARATOR sert a eviter les pb de chemin lors du deploiement-->
                                 <div class="description">
                                     <h3><?= $actor['name']; ?></h3>
                                     <p><?= substr($actor['description'], 0, 65) . '...'; ?></p>
@@ -65,7 +60,7 @@
                                    
                                     <?= ($dislikesByActor[$actor['id']] == NULL) ? '0' : $dislikesByActor[$actor['id']]; ?>
                                 </div>
-                                <a class="button" href="actor.php?id_actor=<?= $actor['id']; ?>">Lire la suite</a>
+                                <a class="button" href="actor.php?actor_id=<?= $actor['id']; ?>">Lire la suite</a>
                             </div>
                         </div>
                     <?php endforeach; ?>

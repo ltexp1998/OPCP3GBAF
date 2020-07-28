@@ -1,6 +1,7 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($_POST['login_form'] == 'connection') {
+        //Récupération et formatage des entrées User puis vérification de leurs existances en base
         $username = htmlspecialchars($_POST['username']);
         $pass = htmlspecialchars($_POST['pass']);
         $user = getUser($username);
@@ -27,10 +28,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <link rel="icon" sizes="144x144" href="img/fav_icon_gbaf.png">
     </head>
     <body>
-        <div id="header_form">
+        <header id="header_form">
             <a href="index.php"><img id="logo" src="img/logo_gbaf.png" alt="logo de GBAF"/></a>
             <p>Le Groupement Banque Assurance Français</p>
-        </div>
+        </header>
         <main>
             <section class="form">
                 <h1>Connectez-vous</h1>

@@ -1,13 +1,14 @@
 <?php
 $pageTitle = 'Mon compte sur le site GBAF';
 session_start();
+//verification si déjà loggé sinon renvois vers page d'acceuil
 if (!isset($_SESSION['username'])) {
     header('Location: index.php');
     exit();
 }
 require('db/connection.php');
 require('functions/functionsql.php');
-
+//Formatage et vérification des différentes entrées User
 $user = getUser($_SESSION['username']);
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($_POST['account_form'] == 'username') {
@@ -84,6 +85,35 @@ include("includes/header.php");
             <p class="confirm"><?= isset($confirmUsername) ? $confirmUsername : '' ?></p>
             <input type="submit" value="Valider les changements">
         </form>
+
+        <h2>Changer mon nom</h2>
+        <form method="post" novalidate>
+            <input type="hidden" name="account_form" value="lastname" />
+            <p><label for="lastname">Nom : </label><br /><input type="text" name="lastname" id="lastname" value="<?= $_SESSION['lastname']; ?>" /></p>
+            <p class="error"><?= isset($errorLastname) ? $errorLastname : '' ?></p>
+            <p class="confirm"><?= isset($confirmLastname) ? $confirmLastname : '' ?></p>
+            <input type="submit" value="Valider les changements">
+        </form>
+
+        <h2>Changer mon prénom</h2>
+        <form method="post" novalidate>
+            <input type="hidden" name="account_form" value="firstname" />
+            <p><label for="firstname">Prénom : </label><br /><input type="text" name="firstname" id="firstname" value="<?= $_SESSION['firstname']; ?>" /></p>
+            <p class="error"><?= isset($errorFirstname) ? $errorFirstname : '' ?></p>
+            <p class="confirm"><?= isset($confirmFirstname) ? $confirmFirstname : '' ?></p>
+            <input type="submit" value="Valider les changements">
+        </form>
+
+        <h2>Changer ma question secrète et ma réponse</h2>
+        <form method="post" novalidate>
+            <input type="hidden" name="account_form" value="questionAnswer" />
+            <p><label for="question">Ma nouvelle question : </label><br /><input type="text" name="question" id="question" value="<?= $user['question']; ?>" required /></p>
+            <p class="error"><?= isset($errorQuestion) ? $errorQuestion : '' ?></p>
+            <p><label for="answer">Ma nouvelle réponse : </label><br /><input type="text" name="answer" id="answer" value="<?= $user['answer']; ?>" required /></p>
+            <p class="error"><?= isset($errorAnswer) ? $errorAnswer : '' ?></p>
+            <p class="confirm"><?= isset($confirmQuestionAnswer) ? $confirmQuestionAnswer : '' ?></p>
+            <input type="submit" value="Valider les changements">
+        </form>
     </section>
 
     <section class="form">
@@ -98,42 +128,6 @@ include("includes/header.php");
             <input type="submit" value="Valider les changements">
         </form>
     </section>
-
-    <section class="form">
-        <h2>Changer mon nom</h2>
-        <form method="post" novalidate>
-            <input type="hidden" name="account_form" value="lastname" />
-            <p><label for="lastname">Nom : </label><br /><input type="text" name="lastname" id="lastname" value="<?= $_SESSION['lastname']; ?>" /></p>
-            <p class="error"><?= isset($errorLastname) ? $errorLastname : '' ?></p>
-            <p class="confirm"><?= isset($confirmLastname) ? $confirmLastname : '' ?></p>
-            <input type="submit" value="Valider les changements">
-        </form>
-    </section>
-
-    <section class="form">
-        <h2>Changer mon prénom</h2>
-        <form method="post" novalidate>
-            <input type="hidden" name="account_form" value="firstname" />
-            <p><label for="firstname">Prénom : </label><br /><input type="text" name="firstname" id="firstname" value="<?= $_SESSION['firstname']; ?>" /></p>
-            <p class="error"><?= isset($errorFirstname) ? $errorFirstname : '' ?></p>
-            <p class="confirm"><?= isset($confirmFirstname) ? $confirmFirstname : '' ?></p>
-            <input type="submit" value="Valider les changements">
-        </form>
-    </section>
-
-    <section class="form">
-        <h2>Changer ma question secrète et ma réponse</h2>
-        <form method="post" novalidate>
-            <input type="hidden" name="account_form" value="questionAnswer" />
-            <p><label for="question">Ma nouvelle question : </label><br /><input type="text" name="question" id="question" value="<?= $user['question']; ?>" required /></p>
-            <p class="error"><?= isset($errorQuestion) ? $errorQuestion : '' ?></p>
-            <p><label for="answer">Ma nouvelle réponse : </label><br /><input type="text" name="answer" id="answer" value="<?= $user['answer']; ?>" required /></p>
-            <p class="error"><?= isset($errorAnswer) ? $errorAnswer : '' ?></p>
-            <p class="confirm"><?= isset($confirmQuestionAnswer) ? $confirmQuestionAnswer : '' ?></p>
-            <input type="submit" value="Valider les changements">
-        </form>
-    </section>
-
 
 </main>
 <?php include("includes/footer.php"); ?>

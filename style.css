@@ -294,9 +294,7 @@ li::first-line {
 .form_newComment div form p textarea {
     width: 100%;
 }
-.newComment p{
-    color: blueviolet;
-}
+
 /* account */
 
 #account section {

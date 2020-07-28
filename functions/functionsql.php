@@ -1,5 +1,5 @@
 <?php // requêtes SQL
-    require 'db/connection.php';
+require 'db/connection.php';
 function getUser($username)
 {
     global $bdd;
@@ -87,13 +87,13 @@ function updateQuestionAnswer($newQuestion, $newAnswer, $username)
     return $req->execute([$newQuestion, $newAnswer, $username]);
 }
 
-function getComment($id_actor)
+function getComment($actor_id)
 {
     global $bdd;
     $listComment = $bdd->prepare('SELECT comment.comment, DATE_FORMAT(created_at, \'%d/%m/%Y à %Hh%imin%ss\') AS created_at_fr, user.firstname, user.id FROM comment
         LEFT JOIN user ON comment.user_id = user.id
         WHERE comment.actor_id = ? ORDER BY comment.created_at DESC');
-    $listComment->execute([$id_actor]);
+    $listComment->execute([$actor_id]);
     return $listComment;
 }
 
@@ -105,20 +105,20 @@ function getVoteByActor($îd_actor)
     return $listVotes;
 }
 
-function getLikeByActor($id_actor)
+function getLikeByActor($actor_id)
 {
     global $bdd;
     $req = $bdd->prepare('SELECT COUNT(vote.vote) AS nb_vote FROM vote WHERE actor_id = ? AND vote = 1');
-    $req->execute([$id_actor]);
+    $req->execute([$actor_id]);
     $like = $req->fetch();
     return $like;
 }
 
-function getDislikeByActor($id_actor)
+function getDislikeByActor($actor_id)
 {
     global $bdd;
     $req = $bdd->prepare('SELECT COUNT(vote.vote) AS nb_vote FROM vote WHERE actor_id = ? AND vote = 0');
-    $req->execute([$id_actor]);
+    $req->execute([$actor_id]);
     $dislike = $req->fetch();
     return $dislike;
 }
@@ -139,24 +139,24 @@ function getDislikes()
     return $dislikes;
 }
 
-function getCommentExist($id_actor, $id_user)
+function getCommentExist($actor_id, $user_id)
 {
     global $bdd;
     $req = $bdd->prepare('SELECT comment.comment FROM comment
         LEFT JOIN user ON comment.user_id = user.id
         WHERE comment.actor_id = ? AND comment.user_id = ?');
-    $req->execute([$id_actor, $id_user]);
+    $req->execute([$actor_id, $user_id]);
     $commentExist = $req->fetch();
     return $commentExist;
 }
 
-function getVoteExist($id_actor, $id_user)
+function getVoteExist($actor_id, $user_id)
 {
     global $bdd;
     $req = $bdd->prepare('SELECT vote.vote FROM vote
         LEFT JOIN user ON vote.user_id = user.id
         WHERE vote.actor_id = ? AND vote.user_id = ?');
-    $req->execute([$id_actor, $id_user]);
+    $req->execute([$actor_id, $user_id]);
     $voteExist = $req->fetch();
     return $voteExist;
 }
